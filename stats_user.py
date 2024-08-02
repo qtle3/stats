@@ -13,7 +13,7 @@ from stats_calculations import (
 
 
 def main():
-    print("This program computes mean, median and standard deviation.")
+    print("This program computes basic statistics for a list of numbers.")
 
     # get the numbers from the user
     data = stats.getNumbers()
