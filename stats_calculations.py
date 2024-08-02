@@ -83,9 +83,9 @@ def mode(numbers):
 
 
 def geometricMean(numbers):
-    m = 1
-    n = len(numbers)
-    for i in numbers:
-        m = m * i
-    geometric_mean = m ** (1 / n)
-    print("Geometric Mean is: " + str(geometric_mean))
+    """This function takes a list of numbers as a parameter
+    and returns the geometric mean."""
+    product = 1
+    for num in numbers:
+        product *= num
+    return round(product ** (1 / len(numbers)), 3)
