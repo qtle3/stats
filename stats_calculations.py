@@ -21,7 +21,7 @@ def getNumbers():
 def mean(numbers):
     """This function takes a list of numbers as a parameter
     and returns the mean."""
-    return sum(numbers) / len(numbers)
+    return round(sum(numbers) / len(numbers), 2)
 
 
 def variance(numbers):
