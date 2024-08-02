@@ -24,14 +24,21 @@ def mean(numbers):
     return sum(numbers) / len(numbers)
 
 
-def stdDev(numbers, xbar):
-    """This function takes a list of numbers and a mean as parameters
-    and returns the sample standard deviation."""
+def variance(numbers):
+    """This function takes a list of numbers as a parameter
+    and returns the variance."""
+    xbar = mean(numbers)
     sumDevSq = 0.0  # initialize the sum of deviation squares to 0
     for num in numbers:
         dev = xbar - num  # deviation from mean
         sumDevSq = sumDevSq + dev * dev  # increment
-    return round(sqrt(sumDevSq / (len(numbers) - 1)), 3)
+    return round(sumDevSq / (len(numbers) - 1), 3)
+
+
+def stdDev(numbers):
+    """This function takes a list of numbers and a mean as parameters
+    and returns the sample standard deviation."""
+    return round(sqrt(variance(numbers)), 3)
 
 
 def quick_select(numbers, k):
@@ -64,6 +71,15 @@ def median(numbers):
         return (
             quick_select(numbers, size // 2 - 1) + quick_select(numbers, size // 2) / 2
         )
+
+
+def mode(numbers):
+    """This function takes a list of numbers as a parameter
+    and returns the mode."""
+    try:
+        return statistics.mode(numbers)
+    except statistics.StatisticsError:
+        return "No unique mode found"
 
 
 def geometricMean(numbers):
